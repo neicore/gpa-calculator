@@ -48,95 +48,6 @@
                     </td>
                     <td><input type="text" class="credits" placeholder="Eg. 20"></td>
                 </tr>
-
-                <tr>
-                    <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
-                    <td>
-                        <select required class="grade">
-                            <option value="" disabled selected>Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="C">D</option>
-                            <option value="C">E</option>
-                            <option value="C">F</option>
-                        </select>
-                    </td>
-                    <td><input type="text" class="credits" placeholder="Eg. 20"></td>
-                    <td><button class="delete-course"><i class="bi bi-x-circle"></i></button></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
-                    <td>
-                        <select required class="grade">
-                            <option value="" disabled selected>Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="C">D</option>
-                            <option value="C">E</option>
-                            <option value="C">F</option>
-                        </select>
-
-                    </td>
-                    <td><input type="text" class="credits" placeholder="Eg. 20"></td>
-                    <td><button class="delete-course"><i class="bi bi-x-circle"></i></button></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
-                    <td>
-                        <select required class="grade">
-                            <option value="" disabled selected>Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="C">D</option>
-                            <option value="C">E</option>
-                            <option value="C">F</option>
-                        </select>
-
-                    </td>
-                    <td><input type="text" class="credits" placeholder="Eg. 20"></td>
-                    <td><button class="delete-course"><i class="bi bi-x-circle"></i></button></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
-                    <td>
-                        <select required class="grade">
-                            <option value="" disabled selected>Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="C">D</option>
-                            <option value="C">E</option>
-                            <option value="C">F</option>
-                        </select>
-
-                    </td>
-                    <td><input type="text" class="credits" placeholder="Eg. 20"></td>
-                    <td><button class="delete-course"><i class="bi bi-x-circle"></i></button></td>
-                </tr>
-
-                <tr>
-                    <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
-                    <td>
-                        <select required class="grade">
-                            <option value="" disabled selected>Select</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="C">D</option>
-                            <option value="C">E</option>
-                            <option value="C">F</option>
-                        </select>
-
-                    </td>
-                    <td><input type="text" class="credits" placeholder="Eg. 20"></td>
-                    <td><button class="delete-course"><i class="bi bi-x-circle"></i></button></td>
-                </tr>
             </table>
 
             <div class="actions">
@@ -148,6 +59,63 @@
 
         <button class="button add-a-semester">Add A Semester</button>
     </div>
+
+    <template id="new-course">
+        <tr class="deletable-row">
+            <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
+            <td>
+                <select required class="grade">
+                    <option value="" disabled selected>Select</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="C">D</option>
+                    <option value="C">E</option>
+                    <option value="C">F</option>
+                </select>
+            </td>
+            <td><input type="text" class="credits" placeholder="Eg. 20"></td>
+            <td><button class="delete-course" onclick="return this.parentNode.parentNode.remove()"><i
+                        class="bi bi-x-circle"></i></button></td>
+        </tr>
+    </template>
+
+    <template id="new-semester">
+        <section class="semester">
+
+            <h2>Semester I</h2>
+
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Grade</th>
+                    <th>Credits</th>
+                </tr>
+
+                <tr>
+                    <td><input type="text" class="course-name" placeholder="Eg. Advanced Calculus"></td>
+                    <td>
+                        <select required class="grade">
+                            <option value="" disabled selected>Select</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="C">D</option>
+                            <option value="C">E</option>
+                            <option value="C">F</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="credits" placeholder="Eg. 20"></td>
+                </tr>
+            </table>
+
+            <div class="actions">
+                <button class="button add-course">Add Course</button>
+                <button class="button clear-all">Clear All</button>
+                <button class="button calculate">Calculate</button>
+            </div>
+        </section>
+    </template>
 </body>
 
 <script src="app.js"></script>
