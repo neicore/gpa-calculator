@@ -16,6 +16,7 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  overflow: auto;
 }
 
 .gpa-calculator {
@@ -42,20 +43,6 @@ body {
 
 .settings:active {
   animation: gearRotate 1s ease-in-out;
-}
-
-@keyframes gearRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(45deg);
-  }
-
-  100% {
-    transform: rotate(90deg);
-  }
 }
 
 .semester {
@@ -181,6 +168,12 @@ option:hover{
 .calculate {
   background-color: var(--dark-blue);
 }
+
+.gpa-value{
+  margin-top: 20px;
+  text-align: center;
+}
+
 .add-a-semester {
   background-color: var(--primary-color-300);
   display: block;
