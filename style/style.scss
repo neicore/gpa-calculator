@@ -1,0 +1,214 @@
+$primary-color-100: #f2f7f7;
+$primary-color-200: #4a9292;
+$primary-color-300: #046865;
+$dark-blue: #03045e;
+$red: #d62246;
+$margin-bottom: 2rem;
+$margin-bottom-mid: .5rem;
+$button-padding: 0.5rem 1.5rem;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    background-color: $primary-color-100;
+    width: fit-content;
+    padding: 2rem 4rem;
+
+    &-title {
+        color: $dark-blue;
+        font-size: 2rem;
+        margin-bottom: $margin-bottom;
+    }
+
+    .semester {
+        background-color: #fff;
+        padding: 2rem 4rem;
+        margin-bottom: $margin-bottom;
+
+        &-title {
+            font-size: 1.5rem;
+            color: $dark-blue;
+            margin-bottom: $margin-bottom-mid;
+        }
+
+        &-content {
+            margin-bottom: $margin-bottom-mid;
+            border-spacing: .7rem .7rem;
+            table-layout: auto;
+            width: fit-content;
+
+            thead {
+                text-align: left;
+                color: $primary-color-300;
+            }
+
+            .course-name {
+                width: 13rem;
+            }
+
+            .credits {
+                width: 5rem;
+            }
+
+            input,
+            select {
+                font-size: 1rem;
+                padding: .5rem 1rem;
+                border: none;
+                outline: none;
+                border-bottom: 2px solid #fff;
+                background-color: $primary-color-100;
+                color: $primary-color-300;
+
+                &:focus {
+                    border-bottom: 2px solid $primary-color-200;
+                }
+            }
+
+            input {
+                &::placeholder {
+                    color: rgba(74, 146, 146, 0.5);
+                }
+
+                &::-webkit-input-placeholder {
+                    color: rgba(74, 146, 146, 0.5);
+                }
+
+                &::-moz-placeholder {
+                    color: rgba(74, 146, 146, 0.5);
+                }
+
+                &:-moz-placeholder {
+                    color: rgba(74, 146, 146, 0.5);
+                }
+
+                &:-ms-input-placeholder {
+                    color: rgba(74, 146, 146, 0.5);
+                }
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                /* display: none; <- Crashes Chrome on hover */
+                -webkit-appearance: none;
+                margin: 0;
+                /* <-- Apparently some margin are still there even though it's hidden */
+            }
+
+            input[type=number] {
+                -moz-appearance: textfield;
+                /* Firefox */
+            }
+
+            select {
+                padding: .45rem 1rem;
+
+                &:required:invalid {
+                    color: rgba(74, 146, 146, 0.5);
+                }
+            }
+
+            option[value=''][disabled] {
+                display: none;
+            }
+
+            option {
+                color: $primary-color-200;
+            }
+
+            option:hover {
+                background-color: var(--primary-color-300);
+            }
+
+            .delete-course {
+                background-color: transparent;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+                color: $primary-color-300;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $red;
+                }
+            }
+        }
+
+        &-actions {
+            width: fit-content;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            &-button {
+                background-color: transparent;
+                border: none;
+                font-size: 1rem;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 10rem;
+
+                i {
+                    font-size: 1rem;
+                    margin-right: 0.5rem;
+                }
+
+                &:focus {
+                    outline: none;
+                    font-weight: 700;
+                }
+            }
+
+            .add-course {
+                color: $primary-color-300;
+            }
+
+            .clear-all {
+                color: $red;
+            }
+        }
+    }
+
+    &-actions {
+        width: fit-content;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        &-button {
+            border: none;
+            padding: $button-padding;
+            color: #fff;
+            font-size: 1rem;
+            width: 10rem;
+
+            &:focus {
+                outline: 0.2rem solid;
+            }
+        }
+
+        .calculate {
+            background-color: $primary-color-300;
+            margin-right: 1rem;
+        }
+
+        .add-semester {
+            background-color: $dark-blue;
+        }
+    }
+}

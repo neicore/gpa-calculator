@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  background-color: #f2f7f7;
+  width: fit-content;
+  padding: 2rem 4rem;
+}
+
+.calculator-title {
+  color: #03045e;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.calculator .semester {
+  background-color: #fff;
+  padding: 2rem 4rem;
+  margin-bottom: 2rem;
+}
+
+.calculator .semester-title {
+  font-size: 1.5rem;
+  color: #03045e;
+  margin-bottom: 0.5rem;
+}
+
+.calculator .semester-content {
+  margin-bottom: 0.5rem;
+  border-spacing: .7rem .7rem;
+  table-layout: auto;
+  width: fit-content;
+}
+
+.calculator .semester-content thead {
+  text-align: left;
+  color: #046865;
+}
+
+.calculator .semester-content .course-name {
+  width: 13rem;
+}
+
+.calculator .semester-content .credits {
+  width: 5rem;
+}
+
+.calculator .semester-content input,
+.calculator .semester-content select {
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  background-color: #f2f7f7;
+  color: #046865;
+}
+
+.calculator .semester-content input:focus,
+.calculator .semester-content select:focus {
+  border-bottom: 2px solid #4a9292;
+}
+
+.calculator .semester-content input::placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::-webkit-input-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::-moz-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input:-moz-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input:-ms-input-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::-webkit-outer-spin-button,
+.calculator .semester-content input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.calculator .semester-content input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+.calculator .semester-content select {
+  padding: .45rem 1rem;
+}
+
+.calculator .semester-content select:required:invalid {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content option[value=''][disabled] {
+  display: none;
+}
+
+.calculator .semester-content option {
+  color: #4a9292;
+}
+
+.calculator .semester-content option:hover {
+  background-color: var(--primary-color-300);
+}
+
+.calculator .semester-content .delete-course {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #046865;
+}
+
+.calculator .semester-content .delete-course:hover, .calculator .semester-content .delete-course:active, .calculator .semester-content .delete-course:focus {
+  color: #d62246;
+}
+
+.calculator .semester-actions {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calculator .semester-actions-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+}
+
+.calculator .semester-actions-button i {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.calculator .semester-actions-button:focus {
+  outline: none;
+  font-weight: 700;
+}
+
+.calculator .semester-actions .add-course {
+  color: #046865;
+}
+
+.calculator .semester-actions .clear-all {
+  color: #d62246;
+}
+
+.calculator-actions {
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calculator-actions-button {
+  border: none;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  font-size: 1rem;
+  width: 10rem;
+}
+
+.calculator-actions-button:focus {
+  outline: 0.2rem solid;
+}
+
+.calculator-actions .calculate {
+  background-color: #046865;
+  margin-right: 1rem;
+}
+
+.calculator-actions .add-semester {
+  background-color: #03045e;
+}
+/*# sourceMappingURL=style.css.map */
