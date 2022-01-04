@@ -7,13 +7,21 @@
 body {
   height: 100vh;
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .calculator {
   background-color: #f2f7f7;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 2rem 4rem;
 }
@@ -40,6 +48,8 @@ body {
   margin-bottom: 0.5rem;
   border-spacing: .7rem .7rem;
   table-layout: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -72,23 +82,19 @@ body {
   border-bottom: 2px solid #4a9292;
 }
 
-.calculator .semester-content input::placeholder {
-  color: rgba(74, 146, 146, 0.5);
-}
-
 .calculator .semester-content input::-webkit-input-placeholder {
   color: rgba(74, 146, 146, 0.5);
 }
 
-.calculator .semester-content input::-moz-placeholder {
-  color: rgba(74, 146, 146, 0.5);
-}
-
-.calculator .semester-content input:-moz-placeholder {
-  color: rgba(74, 146, 146, 0.5);
-}
-
 .calculator .semester-content input:-ms-input-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::-ms-input-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::placeholder {
   color: rgba(74, 146, 146, 0.5);
 }
 
@@ -138,10 +144,15 @@ body {
 }
 
 .calculator .semester-actions {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .calculator .semester-actions-button {
@@ -149,9 +160,15 @@ body {
   border: none;
   font-size: 1rem;
   font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 10rem;
 }
 
@@ -174,10 +191,15 @@ body {
 }
 
 .calculator-actions {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .calculator-actions-button {
