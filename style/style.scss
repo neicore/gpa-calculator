@@ -23,8 +23,9 @@ body {
 
 .calculator {
     background-color: $primary-color-100;
-    width: fit-content;
-    padding: 2rem 4rem;
+    // width: fit-content;
+    padding: 2rem;
+    // margin: 0 2rem;
 
     &-title {
         color: $dark-blue;
@@ -34,7 +35,7 @@ body {
 
     .semester {
         background-color: #fff;
-        padding: 2rem 4rem;
+        padding: 2rem;
         margin-bottom: $margin-bottom;
 
         &-title {
@@ -45,13 +46,18 @@ body {
 
         &-content {
             margin-bottom: $margin-bottom-mid;
-            border-spacing: .7rem .7rem;
-            table-layout: auto;
-            width: fit-content;
 
-            thead {
-                text-align: left;
-                color: $primary-color-300;
+            .course-row {
+                display: grid;
+                grid-template-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-three] auto [cols-end];
+                grid-template-rows: [rows-start] auto [rows-one] auto [rows-end];
+                column-gap: 1rem;
+                row-gap: .5rem;
+                margin-bottom: 1rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
 
             .course-name {
@@ -135,7 +141,6 @@ body {
             width: fit-content;
             margin: auto;
             display: flex;
-            flex-wrap: wrap;
 
             &-button {
                 background-color: transparent;
@@ -172,7 +177,6 @@ body {
         width: fit-content;
         margin: auto;
         display: flex;
-        flex-wrap: wrap;
 
         &-button {
             border: none;
@@ -193,6 +197,54 @@ body {
 
         .add-semester {
             background-color: $dark-blue;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator {
+        .semester {
+            &-content {
+                .course-row {
+                    &-item-one {
+                        grid-column: cols-start/cols-three;
+                        width: auto;
+                    }
+
+                    &-item-two {
+                        grid-column: cols-start/cols-two;
+                        grid-row: rows-one/rows-end;
+                    }
+
+                    &-item-three {
+                        grid-column: cols-two/cols-three;
+                        grid-row: rows-one/rows-end;
+                        justify-self: end;
+                    }
+
+                    &-item-four {
+                        grid-column: cols-three/cols-end;
+                        grid-row: rows-start/rows-end;
+                        width: auto;
+                    }
+
+                }
+
+            }
+
+            &-actions {
+                .add-course {
+                    justify-content: start;
+                }
+            }
+        }
+
+        &-actions{
+            flex-direction: column;
+
+            .add-semester {
+                margin-top: 10px;
+            }
         }
     }
 }

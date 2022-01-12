@@ -3,7 +3,7 @@ let deleteCourseButtons = Array.from(
 )
 
 let deleteCourse = (node) => {
-  node.parentNode.parentNode.remove()
+  node.parentNode.remove()
 
   //   DCB -> Delete Course Buttons
   let remainingDCB = Array.from(document.querySelectorAll('.delete-course'))
