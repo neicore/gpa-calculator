@@ -308,6 +308,12 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .calculator-actions .calculate {
+    margin-right: 0px;
   }
   .calculator-actions .add-semester {
     margin-top: 10px;
