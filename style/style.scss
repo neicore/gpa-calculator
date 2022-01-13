@@ -294,6 +294,11 @@ body {
 
         &-actions {
             flex-direction: column;
+            align-items: center;
+
+            .calculate{
+                margin-right: 0px;
+            }
 
             .add-semester {
                 margin-top: 10px;
