@@ -7,15 +7,15 @@
 body {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .calculator {
   background-color: #f2f7f7;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
-  padding: 2rem 4rem;
+  margin: 2rem auto;
+  padding: 2rem;
 }
 
 .calculator-title {
@@ -26,7 +26,7 @@ body {
 
 .calculator .semester {
   background-color: #fff;
-  padding: 2rem 4rem;
+  padding: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -38,14 +38,18 @@ body {
 
 .calculator .semester-content {
   margin-bottom: 0.5rem;
-  border-spacing: .7rem .7rem;
-  table-layout: auto;
-  width: fit-content;
 }
 
-.calculator .semester-content thead {
-  text-align: left;
-  color: #046865;
+.calculator .semester-content .course-row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-three] auto [cols-end];
+      grid-template-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-three] auto [cols-end];
+  -ms-grid-rows: [rows-start] auto [rows-one] auto [rows-end];
+      grid-template-rows: [rows-start] auto [rows-one] auto [rows-end];
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  row-gap: .5rem;
 }
 
 .calculator .semester-content .course-name {
@@ -72,23 +76,19 @@ body {
   border-bottom: 2px solid #4a9292;
 }
 
-.calculator .semester-content input::placeholder {
-  color: rgba(74, 146, 146, 0.5);
-}
-
 .calculator .semester-content input::-webkit-input-placeholder {
   color: rgba(74, 146, 146, 0.5);
 }
 
-.calculator .semester-content input::-moz-placeholder {
-  color: rgba(74, 146, 146, 0.5);
-}
-
-.calculator .semester-content input:-moz-placeholder {
-  color: rgba(74, 146, 146, 0.5);
-}
-
 .calculator .semester-content input:-ms-input-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::-ms-input-placeholder {
+  color: rgba(74, 146, 146, 0.5);
+}
+
+.calculator .semester-content input::placeholder {
   color: rgba(74, 146, 146, 0.5);
 }
 
@@ -138,10 +138,13 @@ body {
 }
 
 .calculator .semester-actions {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .calculator .semester-actions-button {
@@ -149,9 +152,15 @@ body {
   border: none;
   font-size: 1rem;
   font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 10rem;
 }
 
@@ -174,10 +183,13 @@ body {
 }
 
 .calculator-actions {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .calculator-actions-button {
@@ -199,5 +211,106 @@ body {
 
 .calculator-actions .add-semester {
   background-color: #03045e;
+}
+
+@media (max-width: 768px) {
+  .calculator .semester {
+    padding-right: .7rem;
+  }
+  .calculator .semester-content .course-row {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-end];
+        grid-template-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-end];
+    -ms-grid-rows: [rows-start] auto [rows-one] auto [rows-end];
+        grid-template-rows: [rows-start] auto [rows-one] auto [rows-end];
+    -webkit-column-gap: .7rem;
+            column-gap: .7rem;
+    row-gap: .5rem;
+    margin-bottom: 2rem;
+  }
+  .calculator .semester-content .course-row-item-one {
+    grid-column: cols-start/cols-two;
+    width: auto;
+  }
+  .calculator .semester-content .course-row-item-two {
+    grid-column: cols-start/cols-one;
+    grid-row: rows-one/rows-end;
+  }
+  .calculator .semester-content .course-row-item-three {
+    grid-column: cols-one/cols-two;
+    grid-row: rows-one/rows-end;
+    -ms-grid-column-align: end;
+        justify-self: end;
+  }
+  .calculator .semester-content .course-row-item-four {
+    grid-column: cols-two/cols-end;
+    grid-row: rows-start/rows-end;
+    width: auto;
+  }
+  .calculator .semester-actions .add-course {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator .semester {
+    padding-right: 1rem;
+  }
+  .calculator .semester-content .course-row {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: [cols-start] 12rem [cols-one] 10px [cols-end];
+        grid-template-columns: [cols-start] 12rem [cols-one] 10px [cols-end];
+    -ms-grid-rows: [rows-start] 1fr [rows-one] 1fr [rows-two] 1fr [rows-end];
+        grid-template-rows: [rows-start] 1fr [rows-one] 1fr [rows-two] 1fr [rows-end];
+    -webkit-column-gap: .5rem;
+            column-gap: .5rem;
+    row-gap: .5rem;
+  }
+  .calculator .semester-content .course-row-item-one {
+    grid-column: cols-start/cols-one;
+    grid-row: rows-start/rows-one;
+  }
+  .calculator .semester-content .course-row-item-two {
+    grid-column: cols-start/cols-one;
+    grid-row: rows-one/rows-two;
+  }
+  .calculator .semester-content .course-row-item-three {
+    grid-column: cols-start/cols-one;
+    grid-row: rows-two/rows-end;
+    -ms-grid-column-align: stretch;
+        justify-self: stretch;
+    width: auto;
+  }
+  .calculator .semester-content .course-row-item-four {
+    grid-column: cols-one/cols-end;
+    grid-row: rows-start/rows-end;
+  }
+  .calculator .semester-actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+    margin-top: 2rem;
+  }
+  .calculator .semester-actions .clear-all {
+    margin-top: 10px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .calculator-actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .calculator-actions .add-semester {
+    margin-top: 10px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

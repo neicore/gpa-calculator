@@ -16,15 +16,13 @@ $button-padding: 0.5rem 1.5rem;
 body {
     height: 100vh;
     width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .calculator {
     background-color: $primary-color-100;
     width: fit-content;
-    padding: 2rem 4rem;
+    margin: 2rem auto;
+    padding: 2rem;
 
     &-title {
         color: $dark-blue;
@@ -34,7 +32,7 @@ body {
 
     .semester {
         background-color: #fff;
-        padding: 2rem 4rem;
+        padding: 2rem;
         margin-bottom: $margin-bottom;
 
         &-title {
@@ -45,13 +43,13 @@ body {
 
         &-content {
             margin-bottom: $margin-bottom-mid;
-            border-spacing: .7rem .7rem;
-            table-layout: auto;
-            width: fit-content;
 
-            thead {
-                text-align: left;
-                color: $primary-color-300;
+            .course-row {
+                display: grid;
+                grid-template-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-three] auto [cols-end];
+                grid-template-rows: [rows-start] auto [rows-one] auto [rows-end];
+                column-gap: 1rem;
+                row-gap: .5rem;
             }
 
             .course-name {
@@ -79,22 +77,6 @@ body {
 
             input {
                 &::placeholder {
-                    color: rgba(74, 146, 146, 0.5);
-                }
-
-                &::-webkit-input-placeholder {
-                    color: rgba(74, 146, 146, 0.5);
-                }
-
-                &::-moz-placeholder {
-                    color: rgba(74, 146, 146, 0.5);
-                }
-
-                &:-moz-placeholder {
-                    color: rgba(74, 146, 146, 0.5);
-                }
-
-                &:-ms-input-placeholder {
                     color: rgba(74, 146, 146, 0.5);
                 }
             }
@@ -151,7 +133,6 @@ body {
             width: fit-content;
             margin: auto;
             display: flex;
-            flex-wrap: wrap;
 
             &-button {
                 background-color: transparent;
@@ -188,7 +169,6 @@ body {
         width: fit-content;
         margin: auto;
         display: flex;
-        flex-wrap: wrap;
 
         &-button {
             border: none;
@@ -209,6 +189,115 @@ body {
 
         .add-semester {
             background-color: $dark-blue;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator {
+        .semester {
+            padding-right: .7rem;
+
+            &-content {
+                .course-row {
+                    display: grid;
+                    grid-template-columns: [cols-start] auto [cols-one] auto [cols-two] auto [cols-end];
+                    grid-template-rows: [rows-start] auto [rows-one] auto [rows-end];
+                    column-gap: .7rem;
+                    row-gap: .5rem;
+                    margin-bottom: $margin-bottom;
+
+                    &-item-one {
+                        grid-column: cols-start/cols-two;
+                        width: auto;
+                    }
+
+                    &-item-two {
+                        grid-column: cols-start/cols-one;
+                        grid-row: rows-one/rows-end;
+                    }
+
+                    &-item-three {
+                        grid-column: cols-one/cols-two;
+                        grid-row: rows-one/rows-end;
+                        justify-self: end;
+                    }
+
+                    &-item-four {
+                        grid-column: cols-two/cols-end;
+                        grid-row: rows-start/rows-end;
+                        width: auto;
+                    }
+
+                }
+
+            }
+
+            &-actions {
+                .add-course {
+                    justify-content: start;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        .semester {
+            padding-right: 1rem;
+            
+            &-content {
+                .course-row {
+                    display: grid;
+                    grid-template-columns: [cols-start] 12rem [cols-one] 10px [cols-end];
+                    grid-template-rows: [rows-start] 1fr [rows-one] 1fr [rows-two] 1fr [rows-end];
+                    column-gap: .5rem;
+                    row-gap: .5rem;
+
+                    &-item-one {
+                        grid-column: cols-start/cols-one;
+                        grid-row: rows-start/rows-one;
+                    }
+
+                    &-item-two {
+                        grid-column: cols-start/cols-one;
+                        grid-row: rows-one/rows-two;
+                    }
+
+                    &-item-three {
+                        grid-column: cols-start/cols-one;
+                        grid-row: rows-two/rows-end;
+                        justify-self: stretch;
+                        width: auto;
+                    }
+
+                    &-item-four {
+                        grid-column: cols-one/cols-end;
+                        grid-row: rows-start/rows-end;
+                    }
+
+                }
+            }
+
+            &-actions {
+                flex-direction: column;
+                margin: 0;
+                margin-top: $margin-bottom;
+
+                .clear-all {
+                    margin-top: 10px;
+                    justify-content: start;
+                }
+            }
+        }
+
+        &-actions {
+            flex-direction: column;
+
+            .add-semester {
+                margin-top: 10px;
+            }
         }
     }
 }
