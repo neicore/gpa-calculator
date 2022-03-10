@@ -5,8 +5,8 @@
 }
 
 body {
-  height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .calculator {
@@ -28,6 +28,28 @@ body {
   background-color: #fff;
   padding: 2rem;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.calculator .semester-delete {
+  position: absolute;
+  top: .1rem;
+  right: 1rem;
+  background-color: rgba(255, 255, 255, 0);
+  color: #03045e;
+  border: none;
+  font-size: 2.5rem;
+  visibility: hidden;
+}
+
+.calculator .semester-delete:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.calculator .semester-delete:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .calculator .semester-title {
