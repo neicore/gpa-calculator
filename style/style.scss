@@ -14,8 +14,8 @@ $button-padding: 0.5rem 1.5rem;
 }
 
 body {
-    height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .calculator {
@@ -34,6 +34,26 @@ body {
         background-color: #fff;
         padding: 2rem;
         margin-bottom: $margin-bottom;
+        position: relative;
+
+        &-delete{
+            position: absolute;
+            top: .1rem;
+            right: 1rem;
+            background-color: rgba(255, 255, 255, 0);
+            color: $dark-blue;
+            border: none;
+            font-size: 2.5rem;
+            visibility: hidden;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+
+            &:active{
+                transform: scale(.9);
+            }
+        }
 
         &-title {
             font-size: 1.5rem;

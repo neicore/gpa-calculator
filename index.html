@@ -26,6 +26,7 @@
 
         <section class="semester">
             <h2 class="semester-title">Semester I</h2>
+            <button class="semester-delete"><i class="bi bi-x"></i></button>
 
             <div class="semester-content">
                 <div class="course-row">
@@ -94,6 +95,101 @@
             <button class="calculator-actions-button add-semester">Add Semester</button>
         </div>
     </div>
+
+    <template id="course-row-template">
+        <div class="course-row">
+            <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+
+            <select class="grade course-row-item-two" required>
+                <option disabled selected value="">Select Grade</option>
+                <option value="4.0">A+</option>
+                <option value="4.0">A</option>
+                <option value="3.7">A&#8722;</option>
+                <option value="3.3">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B&#8722;</option>
+                <option value="2.3">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C&#8722;</option>
+                <option value="1.3">D+</option>
+                <option value="1.0">D</option>
+                <option value="0.7">D&#8722;</option>
+                <option value="0.0">F&#8722;</option>
+            </select>
+
+            <input type="number" class="credits course-row-item-three" placeholder="Credits">
+
+            <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
+        </div>
+    </template>
+
+    <template id="semester-template">
+        <section class="semester">
+            <h2 class="semester-title">Semester I</h2>
+            <button class="semester-delete"><i class="bi bi-x"></i></button>
+
+            <div class="semester-content">
+                <div class="course-row">
+                    <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+
+                    <select class="grade course-row-item-two" required>
+                        <option disabled selected value="">Select Grade</option>
+                        <option value="4.0">A+</option>
+                        <option value="4.0">A</option>
+                        <option value="3.7">A&#8722;</option>
+                        <option value="3.3">B+</option>
+                        <option value="3.0">B</option>
+                        <option value="2.7">B&#8722;</option>
+                        <option value="2.3">C+</option>
+                        <option value="2.0">C</option>
+                        <option value="1.7">C&#8722;</option>
+                        <option value="1.3">D+</option>
+                        <option value="1.0">D</option>
+                        <option value="0.7">D&#8722;</option>
+                        <option value="0.0">F&#8722;</option>
+                    </select>
+
+                    <input type="number" class="credits course-row-item-three" placeholder="Credits">
+
+                    <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
+                </div>
+                <div class="course-row">
+                    <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+
+                    <select class="grade course-row-item-two" required>
+                        <option disabled selected value="">Select Grade</option>
+                        <option value="4.0">A+</option>
+                        <option value="4.0">A</option>
+                        <option value="3.7">A&#8722;</option>
+                        <option value="3.3">B+</option>
+                        <option value="3.0">B</option>
+                        <option value="2.7">B&#8722;</option>
+                        <option value="2.3">C+</option>
+                        <option value="2.0">C</option>
+                        <option value="1.7">C&#8722;</option>
+                        <option value="1.3">D+</option>
+                        <option value="1.0">D</option>
+                        <option value="0.7">D&#8722;</option>
+                        <option value="0.0">F&#8722;</option>
+                    </select>
+
+                    <input type="number" class="credits course-row-item-three" placeholder="Credits">
+
+                    <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
+                </div>
+            </div>
+
+            <div class="semester-actions">
+                <button class="semester-actions-button add-course">
+                    <i class="bi bi-plus-circle"></i> Add Course
+                </button>
+
+                <button class="semester-actions-button clear-all">
+                    <i class="bi bi-x-circle"></i> Clear All
+                </button>
+            </div>
+        </section>
+    </template>
 
 </body>
 
