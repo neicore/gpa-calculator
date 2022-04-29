@@ -88,7 +88,7 @@ let addSemester = () => {
   let childrenLength = calculator.children.length
 
   let semesterTitle = newSemester.querySelector('.semester-title')
-  semesterTitle.textContent = `Semester ${romanize(childrenLength - 1)}`
+  semesterTitle.textContent = `Semester ${romanize(childrenLength - 2)}`
 
   let addCourseButton = newSemester.querySelector('.add-course')
   let clearAllButton = newSemester.querySelector('.clear-all')
@@ -117,7 +117,7 @@ let addSemester = () => {
     clearAll(clearAllButton)
   })
 
-  calculator.insertBefore(newSemester, calculator.children[childrenLength - 1])
+  calculator.insertBefore(newSemester, calculator.children[childrenLength - 2])
 
   let remainingSemesters = Array.from(calculator.querySelectorAll('.semester'))
   if (remainingSemesters.length > 1) {
@@ -183,3 +183,38 @@ function romanize(num) {
   }
   return roman
 }
+
+let calculate = () => {
+  let allSemesters = Array.from(calculator.querySelectorAll('.semester'))
+  let overallGpa = calculator.querySelector('.overall-gpa')
+  let semestersGpa = []
+
+  allSemesters.forEach((semester) => {
+    let courseRows = semester.querySelectorAll('.course-row')
+    let semesterGpaUI = semester.querySelector('.semester-gpa')
+    let semesterActions = semester.querySelector('.semester-actions')
+    let allGradeCredits = []
+    let allCredits = []
+
+    courseRows.forEach((courseRow) => {
+      let grade = courseRow.querySelector('.grade').value
+      let credits = Number(courseRow.querySelector('.credits').value)
+      let gradeCredits = grade * credits
+      allGradeCredits.push(gradeCredits)
+      allCredits.push(credits)
+    })
+
+    let sumGradeCredits = allGradeCredits.reduce((a, b) => a + b, 0)
+    let sumCredits = allCredits.reduce((a, b) => a + b, 0)
+    let gpa = sumGradeCredits / sumCredits
+    semesterGpaUI.textContent = gpa.toFixed(2)
+    semestersGpa.push(gpa)
+  })
+
+  let sumSemestersGPA = semestersGpa.reduce((a, b) => a + b, 0)
+  overallGpa.textContent = (sumSemestersGPA / semestersGpa.length).toFixed(2)
+}
+
+calculateButton.addEventListener('click', () => {
+  calculate()
+})
