@@ -2,48 +2,46 @@ let semesterTemplate = document.querySelector('#semester-template')
 let courseRowTemplate = document.querySelector('#course-row-template')
 
 let calculator = document.querySelector('.calculator')
-let deleteSemesterButton = document.querySelector('.semester-delete')
-let addSemesterButton = document.querySelector('.add-semester')
-let calculateButton = document.querySelector('.calculate')
+let defaultSemester = calculator.querySelector('.default-semester')
+let addSemesterButton = calculator.querySelector('.add-semester')
+let calculateButton = calculator.querySelector('.calculate')
 
-let addCourseButton = document.querySelector('.add-course')
-let clearAllButton = document.querySelector('.clear-all')
-let deleteCourseButtons = Array.from(
-  document.querySelectorAll('.delete-course')
-)
+let deleteSemesterButton = defaultSemester.querySelector('.semester-delete')
+let addCourseButton = defaultSemester.querySelector('.add-course')
+let clearAllButton = defaultSemester.querySelector('.clear-all')
+let deleteCourseButton = defaultSemester.querySelectorAll('.bi-x-circle')
 
-let deleteCourse = (node) => {
-  node.parentNode.remove()
+if (deleteCourseButton.length > 1) {
+  defaultSemester.addEventListener('click', (e) => {
+    if (e.target.classList.contains('bi-x-circle')) {
+      e.target.parentNode.parentNode.remove()
 
-  //   DCB -> Delete Course Buttons
-  let remainingDCB = Array.from(document.querySelectorAll('.delete-course'))
-  if (remainingDCB.length === 1) remainingDCB[0].style.visibility = 'hidden'
+      let remainCourses = defaultSemester.querySelectorAll('.course-row')
+      if (remainCourses.length === 1) {
+        let remainedDeleteCourseButton =
+          remainCourses[0].querySelector('.bi-x-circle')
+        remainedDeleteCourseButton.parentNode.style.visibility = 'hidden'
+      }
+    }
+  })
 }
 
-deleteCourseButtons.forEach((deleteCourseButton) => {
-  deleteCourseButton.addEventListener('click', () => {
-    deleteCourse(deleteCourseButton)
-  })
-})
-
-let addCourse = (node) => {
+let addCourse = (node, semester) => {
   let semesterContent =
     node.parentNode.parentNode.querySelector('.semester-content')
   let newCourse = courseRowTemplate.content.firstElementChild.cloneNode(true)
-  let deleteCourseButton = newCourse.querySelector('.delete-course')
-
-  deleteCourseButton.addEventListener('click', () => {
-    deleteCourse(deleteCourseButton)
-  })
   semesterContent.appendChild(newCourse)
 
-  //   DCB -> Delete Course Buttons
-  let remainingDCB = Array.from(document.querySelectorAll('.delete-course'))
-  if (remainingDCB.length > 1) remainingDCB[0].style.visibility = 'visible'
+  let remainCourses = semester.querySelectorAll('.course-row')
+  if (remainCourses.length > 1) {
+    let remainedDeleteCourseButton =
+      remainCourses[0].querySelector('.bi-x-circle')
+    remainedDeleteCourseButton.parentNode.style.visibility = 'visible'
+  }
 }
 
 addCourseButton.addEventListener('click', () => {
-  addCourse(addCourseButton)
+  addCourse(addCourseButton, defaultSemester)
 })
 
 let clearAll = (node) => {
@@ -94,18 +92,25 @@ let addSemester = () => {
 
   let addCourseButton = newSemester.querySelector('.add-course')
   let clearAllButton = newSemester.querySelector('.clear-all')
-  let deleteCourseButtons = Array.from(
-    newSemester.querySelectorAll('.delete-course')
-  )
+  let deleteCourseButton = newSemester.querySelectorAll('.bi-x-circle')
 
-  deleteCourseButtons.forEach((deleteCourseButton) => {
-    deleteCourseButton.addEventListener('click', () => {
-      deleteCourse(deleteCourseButton)
+  if (deleteCourseButton.length > 1) {
+    newSemester.addEventListener('click', (e) => {
+      if (e.target.classList.contains('bi-x-circle')) {
+        e.target.parentNode.parentNode.remove()
+
+        let remainCourses = newSemester.querySelectorAll('.course-row')
+        if (remainCourses.length === 1) {
+          let remainedDeleteCourseButton =
+            remainCourses[0].querySelector('.bi-x-circle')
+          remainedDeleteCourseButton.parentNode.style.visibility = 'hidden'
+        }
+      }
     })
-  })
+  }
 
   addCourseButton.addEventListener('click', () => {
-    addCourse(addCourseButton)
+    addCourse(addCourseButton, newSemester)
   })
 
   clearAllButton.addEventListener('click', () => {
@@ -125,6 +130,7 @@ let addSemester = () => {
   }
 
   let deleteSemesterButtons = calculator.querySelectorAll('.semester-delete')
+
   deleteSemesterButtons.forEach((deleteSemesterButton) => {
     deleteSemesterButton.addEventListener('click', () => {
       deleteSemester(deleteSemesterButton)
