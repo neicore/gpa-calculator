@@ -75,15 +75,22 @@
                 </button>
             </div>
 
-            <p>GPA <span class="semester-gpa"></span></p>
+            <p class="semester-gpa-ui">
+                <span class="semester-title">Semester I</span> GPA: <span class="semester-gpa"></span>
+            </p>
         </section>
 
-        <div class="calculator-actions">
+        <p class="overall-gpa-ui"><span>Overall GPA</span> <span class="overall-gpa">0.00</span></p>
+
+        <div class="calculator-actions one">
             <button class="calculator-actions-button calculate">Calculate</button>
             <button class="calculator-actions-button add-semester">Add Semester</button>
         </div>
 
-        <p>Overall GPA <span class="overall-gpa"></span></p>
+        <div class="calculator-actions two">
+            <button class="calculator-actions-button calculate" onclick="download()">Download</button>
+            <button class="calculator-actions-button add-semester" onclick="edit()">Edit</button>
+        </div>
     </div>
 
     <template id="course-row-template">
@@ -158,10 +165,11 @@
                 </button>
             </div>
 
-            <p>GPA <span class="semester-gpa"></span></p>
+            <p class="semester-gpa-ui">
+                <span class="semester-title">Semester I</span> GPA: <span class="semester-gpa"></span>
+            </p>
         </section>
     </template>
-
 </body>
 
 <script src="/app.js"></script>
