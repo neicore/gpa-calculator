@@ -1,10 +1,15 @@
 let semesterTemplate = document.querySelector('#semester-template')
 let courseRowTemplate = document.querySelector('#course-row-template')
 
+let tablets = window.matchMedia('(max-width: 768px)')
+let mobiles = window.matchMedia('(max-width: 480px)')
+
 let calculator = document.querySelector('.calculator')
 let defaultSemester = calculator.querySelector('.default-semester')
 let addSemesterButton = calculator.querySelector('.add-semester')
 let calculateButton = calculator.querySelector('.calculate')
+let calculatorActionsOne = calculator.querySelector('.calculator-actions.one')
+let calculatorActionsTwo = calculator.querySelector('.calculator-actions.two')
 
 let deleteSemesterButton = defaultSemester.querySelector('.semester-delete')
 let addCourseButton = defaultSemester.querySelector('.add-course')
@@ -87,8 +92,10 @@ let addSemester = () => {
   let newSemester = semesterTemplate.content.firstElementChild.cloneNode(true)
   let childrenLength = calculator.children.length
 
-  let semesterTitle = newSemester.querySelector('.semester-title')
-  semesterTitle.textContent = `Semester ${romanize(childrenLength - 2)}`
+  let semesterTitles = newSemester.querySelectorAll('.semester-title')
+  semesterTitles.forEach((semesterTitle) => {
+    semesterTitle.textContent = `Semester ${romanize(childrenLength - 3)}`
+  })
 
   let addCourseButton = newSemester.querySelector('.add-course')
   let clearAllButton = newSemester.querySelector('.clear-all')
@@ -117,7 +124,7 @@ let addSemester = () => {
     clearAll(clearAllButton)
   })
 
-  calculator.insertBefore(newSemester, calculator.children[childrenLength - 2])
+  calculator.insertBefore(newSemester, calculator.children[childrenLength - 3])
 
   let remainingSemesters = Array.from(calculator.querySelectorAll('.semester'))
   if (remainingSemesters.length > 1) {
@@ -191,8 +198,6 @@ let calculate = () => {
 
   allSemesters.forEach((semester) => {
     let courseRows = semester.querySelectorAll('.course-row')
-    let semesterGpaUI = semester.querySelector('.semester-gpa')
-    let semesterActions = semester.querySelector('.semester-actions')
     let allGradeCredits = []
     let allCredits = []
 
@@ -202,19 +207,69 @@ let calculate = () => {
       let gradeCredits = grade * credits
       allGradeCredits.push(gradeCredits)
       allCredits.push(credits)
+
+      let deleteCourseButton = courseRow.querySelector('.delete-course')
+      deleteCourseButton.style.display = 'none'
     })
 
+    let semesterGPA = semester.querySelector('.semester-gpa')
     let sumGradeCredits = allGradeCredits.reduce((a, b) => a + b, 0)
     let sumCredits = allCredits.reduce((a, b) => a + b, 0)
     let gpa = sumGradeCredits / sumCredits
-    semesterGpaUI.textContent = gpa.toFixed(2)
+    semesterGPA.textContent = gpa.toFixed(2)
     semestersGpa.push(gpa)
+
+    let semesterDelete = semester.querySelectorAll('.semester-delete')
+    let semesterActions = semester.querySelector('.semester-actions')
+    let semesterGPAUI = semester.querySelector('.semester-gpa-ui')
+    semesterDelete.forEach((semesterDelete) => {
+      semesterDelete.style.display = 'none'
+    })
+    semesterGPAUI.style.display = 'block'
+    semesterActions.style.display = 'none'
   })
 
-  let sumSemestersGPA = semestersGpa.reduce((a, b) => a + b, 0)
-  overallGpa.textContent = (sumSemestersGPA / semestersGpa.length).toFixed(2)
+  if (allSemesters.length > 1) {
+    let sumSemestersGPA = semestersGpa.reduce((a, b) => a + b, 0)
+    overallGpa.textContent = (sumSemestersGPA / semestersGpa.length).toFixed(2)
+
+    let overallGPAUi = calculator.querySelector('.overall-gpa-ui')
+    overallGPAUi.style.display = 'flex'
+  }
+
+  calculatorActionsOne.style.display = 'none'
+  calculatorActionsTwo.style.display = 'flex'
 }
 
 calculateButton.addEventListener('click', () => {
   calculate()
 })
+
+let edit = () => {
+  let allSemesters = Array.from(calculator.querySelectorAll('.semester'))
+
+  allSemesters.forEach((semester) => {
+    let courseRows = semester.querySelectorAll('.course-row')
+    courseRows.forEach((courseRow) => {
+      let deleteCourseButton = courseRow.querySelector('.delete-course')
+      deleteCourseButton.style.display = 'block'
+    })
+
+    let semesterDelete = semester.querySelectorAll('.semester-delete')
+    let semesterActions = semester.querySelector('.semester-actions')
+    let semesterGPAUI = semester.querySelector('.semester-gpa-ui')
+    semesterDelete.forEach((semesterDelete) => {
+      semesterDelete.style.display = 'block'
+    })
+    semesterGPAUI.style.display = 'none'
+    semesterActions.style.display = 'flex'
+  })
+
+  if (allSemesters.length > 1) {
+    let overallGPAUi = calculator.querySelector('.overall-gpa-ui')
+    overallGPAUi.style.display = 'none'
+  }
+
+  calculatorActionsOne.style.display = 'flex'
+  calculatorActionsTwo.style.display = 'none'
+}

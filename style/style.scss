@@ -210,6 +210,10 @@ body {
         .add-semester {
             background-color: $dark-blue;
         }
+
+        &.two{
+            display: none;
+        }
     }
 }
 
@@ -325,4 +329,35 @@ body {
             }
         }
     }
+}
+
+.semester-gpa-ui{
+    font-size: 1.1rem;
+    width: 97%;
+    color: $dark-blue;
+    text-align: right;
+    display: none;
+
+    .semester-title{
+        font-size: 1.1rem;
+    }
+
+    .semester-gpa{
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.overall-gpa-ui{
+    display: none;
+    justify-content: space-between;
+    background-color: $primary-color-300;
+    color: $primary-color-100;
+    padding: 1rem 2rem;
+    margin-bottom: $margin-bottom;
+    font-size: 1.2rem;
 }

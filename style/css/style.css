@@ -235,6 +235,10 @@ body {
   background-color: #03045e;
 }
 
+.calculator-actions.two {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .calculator .semester {
     padding-right: .7rem;
@@ -340,5 +344,40 @@ body {
   .calculator-actions .add-semester {
     margin-top: 10px;
   }
+}
+
+.semester-gpa-ui {
+  font-size: 1.1rem;
+  width: 97%;
+  color: #03045e;
+  text-align: right;
+  display: none;
+}
+
+.semester-gpa-ui .semester-title {
+  font-size: 1.1rem;
+}
+
+.semester-gpa-ui .semester-gpa {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .semester-gpa-ui {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.overall-gpa-ui {
+  display: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #046865;
+  color: #f2f7f7;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=style.css.map */
