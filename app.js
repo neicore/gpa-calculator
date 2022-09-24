@@ -273,3 +273,5 @@ let edit = () => {
   calculatorActionsOne.style.display = 'flex'
   calculatorActionsTwo.style.display = 'none'
 }
+
+let download = () => {alert ("Not working yet")}
