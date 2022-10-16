@@ -1,178 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="stylesheet" href="style/css/style.css">
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="style/css/style.css"
+      type="text/css"
+      media="all"
+      title="no title"
+      charset="utf-8"
+    />
     <title>GPA Calculator</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <style type="text/css">
+      @media print {
+        body * {
+          display: none;
+        }
+
+        body .print-area,
+        .print-area * {
+          display: block;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+      }
+    </style>
 
     <div class="calculator">
-        <h1 class="calculator-title">GPA Calculator</h1>
+      <h1 class="calculator-title">GPA Calculator</h1>
 
-        <section class="semester default-semester">
-            <h2 class="semester-title">Semester I</h2>
-            <button class="semester-delete"><i class="bi bi-x"></i></button>
+      <section class="semester default-semester">
+        <h2 class="semester-title">Semester I</h2>
+        <button class="semester-delete"><i class="bi bi-x"></i></button>
 
-            <div class="semester-content">
-                <div class="course-row">
-                    <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+        <div class="semester-content">
+          <div class="course-row">
+            <input
+              type="text"
+              class="course-name course-row-item-one"
+              placeholder="Course Name"
+            />
 
-                    <select class="grade course-row-item-two" required>
-                        <option disabled selected value="">Select Grade</option>
-                        <option value="5">A</option>
-                        <option value="4">B+</option>
-                        <option value="3">B</option>
-                        <option value="2">C</option>
-                        <option value="1">D</option>
-                        <option value="0">E</option>
-                    </select>
+            <select class="grade course-row-item-two" required>
+              <option disabled selected value="">Select Grade</option>
+              <option value="5">A</option>
+              <option value="4">B+</option>
+              <option value="3">B</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">E</option>
+            </select>
 
-                    <input type="number" class="credits course-row-item-three" placeholder="Credits">
+            <input
+              type="number"
+              class="credits course-row-item-three"
+              placeholder="Credits"
+            />
 
-                    <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
-                </div>
-                <div class="course-row">
-                    <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+            <button class="delete-course course-row-item-four">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
+          <div class="course-row">
+            <input
+              type="text"
+              class="course-name course-row-item-one"
+              placeholder="Course Name"
+            />
 
-                    <select class="grade course-row-item-two" required>
-                        <option disabled selected value="">Select Grade</option>
-                        <option value="5">A</option>
-                        <option value="4">B+</option>
-                        <option value="3">B</option>
-                        <option value="2">C</option>
-                        <option value="1">D</option>
-                        <option value="0">E</option>
-                    </select>
+            <select class="grade course-row-item-two" required>
+              <option disabled selected value="">Select Grade</option>
+              <option value="5">A</option>
+              <option value="4">B+</option>
+              <option value="3">B</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">E</option>
+            </select>
 
-                    <input type="number" class="credits course-row-item-three" placeholder="Credits">
+            <input
+              type="number"
+              class="credits course-row-item-three"
+              placeholder="Credits"
+            />
 
-                    <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
-                </div>
-            </div>
-
-            <div class="semester-actions">
-                <button class="semester-actions-button add-course">
-                    <i class="bi bi-plus-circle"></i> Add Course
-                </button>
-
-                <button class="semester-actions-button clear-all">
-                    <i class="bi bi-x-circle"></i> Clear All
-                </button>
-            </div>
-
-            <p class="semester-gpa-ui">
-                <span class="semester-title">Semester I</span> GPA: <span class="semester-gpa"></span>
-            </p>
-        </section>
-
-        <p class="overall-gpa-ui"><span>Overall GPA</span> <span class="overall-gpa">0.00</span></p>
-
-        <div class="calculator-actions one">
-            <button class="calculator-actions-button calculate">Calculate</button>
-            <button class="calculator-actions-button add-semester">Add Semester</button>
+            <button class="delete-course course-row-item-four">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
         </div>
 
-        <div class="calculator-actions two">
-            <button class="calculator-actions-button calculate" onclick="download()">Download</button>
-            <button class="calculator-actions-button add-semester" onclick="edit()">Edit</button>
+        <div class="semester-actions">
+          <button class="semester-actions-button add-course">
+            <i class="bi bi-plus-circle"></i> Add Course
+          </button>
+
+          <button class="semester-actions-button clear-all">
+            <i class="bi bi-x-circle"></i> Clear All
+          </button>
         </div>
+
+        <p class="semester-gpa-ui">
+          <span class="semester-title">Semester I</span> GPA:
+          <span class="semester-gpa"></span>
+        </p>
+      </section>
+
+      <p class="overall-gpa-ui">
+        <span>Overall GPA</span> <span class="overall-gpa">0.00</span>
+      </p>
+
+      <div class="calculator-actions one">
+        <button class="calculator-actions-button calculate">Calculate</button>
+        <button class="calculator-actions-button add-semester">
+          Add Semester
+        </button>
+      </div>
+
+      <div class="calculator-actions two">
+        <button
+          class="calculator-actions-button calculate"
+          onclick="download()"
+        >
+          Download
+        </button>
+        <button class="calculator-actions-button add-semester" onclick="edit()">
+          Edit
+        </button>
+      </div>
     </div>
 
     <template id="course-row-template">
-        <div class="course-row">
-            <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+      <div class="course-row">
+        <input
+          type="text"
+          class="course-name course-row-item-one"
+          placeholder="Course Name"
+        />
 
-            <select class="grade course-row-item-two" required>
-                <option disabled selected value="">Select Grade</option>
-                <option value="5">A</option>
-                <option value="4">B+</option>
-                <option value="3">B</option>
-                <option value="2">C</option>
-                <option value="1">D</option>
-                <option value="0">E</option>
-            </select>
+        <select class="grade course-row-item-two" required>
+          <option disabled selected value="">Select Grade</option>
+          <option value="5">A</option>
+          <option value="4">B+</option>
+          <option value="3">B</option>
+          <option value="2">C</option>
+          <option value="1">D</option>
+          <option value="0">E</option>
+        </select>
 
-            <input type="number" class="credits course-row-item-three" placeholder="Credits">
+        <input
+          type="number"
+          class="credits course-row-item-three"
+          placeholder="Credits"
+        />
 
-            <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
-        </div>
+        <button class="delete-course course-row-item-four">
+          <i class="bi bi-x-circle"></i>
+        </button>
+      </div>
     </template>
 
     <template id="semester-template">
-        <section class="semester">
-            <h2 class="semester-title">Semester I</h2>
-            <button class="semester-delete"><i class="bi bi-x"></i></button>
+      <section class="semester">
+        <h2 class="semester-title">Semester I</h2>
+        <button class="semester-delete"><i class="bi bi-x"></i></button>
 
-            <div class="semester-content">
-                <div class="course-row">
-                    <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+        <div class="semester-content">
+          <div class="course-row">
+            <input
+              type="text"
+              class="course-name course-row-item-one"
+              placeholder="Course Name"
+            />
 
-                    <select class="grade course-row-item-two" required>
-                        <option disabled selected value="">Select Grade</option>
-                        <option value="5">A</option>
-                        <option value="4">B+</option>
-                        <option value="3">B</option>
-                        <option value="2">C</option>
-                        <option value="1">D</option>
-                        <option value="0">E</option>
-                    </select>
+            <select class="grade course-row-item-two" required>
+              <option disabled selected value="">Select Grade</option>
+              <option value="5">A</option>
+              <option value="4">B+</option>
+              <option value="3">B</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">E</option>
+            </select>
 
-                    <input type="number" class="credits course-row-item-three" placeholder="Credits">
+            <input
+              type="number"
+              class="credits course-row-item-three"
+              placeholder="Credits"
+            />
 
-                    <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
-                </div>
-                <div class="course-row">
-                    <input type="text" class="course-name course-row-item-one" placeholder="Course Name">
+            <button class="delete-course course-row-item-four">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
+          <div class="course-row">
+            <input
+              type="text"
+              class="course-name course-row-item-one"
+              placeholder="Course Name"
+            />
 
-                    <select class="grade course-row-item-two" required>
-                        <option disabled selected value="">Select Grade</option>
-                        <option value="5">A</option>
-                        <option value="4">B+</option>
-                        <option value="3">B</option>
-                        <option value="2">C</option>
-                        <option value="1">D</option>
-                        <option value="0">E</option>
-                    </select>
+            <select class="grade course-row-item-two" required>
+              <option disabled selected value="">Select Grade</option>
+              <option value="5">A</option>
+              <option value="4">B+</option>
+              <option value="3">B</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">E</option>
+            </select>
 
-                    <input type="number" class="credits course-row-item-three" placeholder="Credits">
+            <input
+              type="number"
+              class="credits course-row-item-three"
+              placeholder="Credits"
+            />
 
-                    <button class="delete-course course-row-item-four"><i class="bi bi-x-circle"></i></button>
-                </div>
-            </div>
+            <button class="delete-course course-row-item-four">
+              <i class="bi bi-x-circle"></i>
+            </button>
+          </div>
+        </div>
 
-            <div class="semester-actions">
-                <button class="semester-actions-button add-course">
-                    <i class="bi bi-plus-circle"></i> Add Course
-                </button>
+        <div class="semester-actions">
+          <button class="semester-actions-button add-course">
+            <i class="bi bi-plus-circle"></i> Add Course
+          </button>
 
-                <button class="semester-actions-button clear-all">
-                    <i class="bi bi-x-circle"></i> Clear All
-                </button>
-            </div>
+          <button class="semester-actions-button clear-all">
+            <i class="bi bi-x-circle"></i> Clear All
+          </button>
+        </div>
 
-            <p class="semester-gpa-ui">
-                <span class="semester-title">Semester I</span> GPA: <span class="semester-gpa"></span>
-            </p>
-        </section>
+        <p class="semester-gpa-ui">
+          <span class="semester-title">Semester I</span> GPA:
+          <span class="semester-gpa"></span>
+        </p>
+      </section>
     </template>
-</body>
+  </body>
 
-
-<script src="/app.js" type="module"></script>
-
+  <script src="/app.js" type="module"></script>
 </html>
