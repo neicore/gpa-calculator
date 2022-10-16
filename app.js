@@ -164,8 +164,8 @@ addSemesterButton.addEventListener('click', () => {
   addSemester()
 })
 
-function romanize(num) {
-  var lookup = {
+const romanize = (num) => {
+  let lookup = {
       M: 1000,
       CM: 900,
       D: 500,
@@ -245,7 +245,7 @@ calculateButton.addEventListener('click', () => {
   calculate()
 })
 
-let edit = () => {
+window.edit = () => {
   let allSemesters = Array.from(calculator.querySelectorAll('.semester'))
 
   allSemesters.forEach((semester) => {
@@ -274,4 +274,13 @@ let edit = () => {
   calculatorActionsTwo.style.display = 'none'
 }
 
-let download = () => {alert ("Not working yet")}
+window.download = () => {
+  const parent = calculatorActionsTwo.parentNode
+  const action = parent.querySelector('.semester-gpa-ui')
+
+  action.style.width = '100%'
+  action.style.textAlign = 'left'
+
+  parent.classList.add('print-area')
+  window.print()
+}
